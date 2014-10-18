@@ -18,10 +18,8 @@ if sys.version_info[0] == 2:
 else:
     import queue
 
-ACTIONS = {}
-for i, name in enumerate(('Created', 'Deleted', 'Updated', 'Renamed from',
-                          'Renamed to')):
-    ACTIONS[i] = name
+ACTIONS = {i: name for i, name in enumerate(('Created', 'Deleted', 'Updated',
+                                             'Renamed from', 'Renamed to'))}
 FILE_LIST_DIR = 0x0001
 
 
