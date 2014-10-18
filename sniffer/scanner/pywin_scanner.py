@@ -36,13 +36,14 @@ class PyWinScanner(BaseScanner):
 
     def _get_handle(self, path):
         return win32file.CreateFile(
-            path,                                                 # filename
-            FILE_LIST_DIR,                                        # desired access
-            win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE, # share mode
-            None,                                                 # security attrs
-            win32con.OPEN_EXISTING,                               # creation disposition
-            win32con.FILE_FLAG_BACKUP_SEMANTICS,                  # flags & attrs
-            None                                                  # template file (?)
+            path,                                   # filename
+            FILE_LIST_DIR,                          # desired access
+            win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE |
+            win32con.FILE_SHARE_DELETE,             # share mode
+            None,                                   # security attrs
+            win32con.OPEN_EXISTING,                 # creation disposition
+            win32con.FILE_FLAG_BACKUP_SEMANTICS,    # flags & attrs
+            None                                    # template file (?)
         )
 
     def _get_changes_blocking(self, handle):
